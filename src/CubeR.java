@@ -3,12 +3,30 @@ import java.util.ArrayList;
 public class CubeR {
     protected ArrayList<Face> cube;
 
-
-    public CubeR(ArrayList<Face> cube) {
+     public CubeR() {
         this.cube = new ArrayList<>();
+        initializerIncialColor();
     }
 
-    private void initializerIncialColor()
+    public void personalizeCubeColors(ArrayList<String> colorFaces)
+    {
+        int counter=0;
+        for (Face face:cube)
+        {
+            face.setFace(colorFaces.get(counter));
+            counter++;
+        }
+    }
+
+    public void printCube() {
+        for (Face face : cube)
+        {
+            System.out.println(face.getCenterColor());
+            face.printFace();
+        }
+    }
+
+     private void initializerIncialColor()
     {
         Face redFace = new Face('R');
         Face blueFace = new Face('B');
@@ -17,11 +35,11 @@ public class CubeR {
         Face greenFace = new Face('G');
         Face yellowFace = new Face('Y');
 
-        cube.add(whiteFace); //First Face
-        cube.add(blueFace);
-        cube.add(redFace);
-        cube.add(orangeFace);
-        cube.add(greenFace);
-        cube.add(yellowFace);//Last Face
+        cube.add(whiteFace); //Up Face
+        cube.add(blueFace);//Front Face
+        cube.add(redFace);//Left Face
+        cube.add(orangeFace);//Right Face
+        cube.add(greenFace);//Back Face
+        cube.add(yellowFace);//Down Face
     }
 }

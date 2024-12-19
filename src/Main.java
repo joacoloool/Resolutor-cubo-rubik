@@ -1,20 +1,20 @@
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
 
-        char[][] faces = new char[3][3];
-        String color = "RNAAVRBVR";
-        int value = 0;
-        for (int i=0; i<3;i++)
-        {
-            for (int n=0; n<3; n++)
-            {
-                faces[i][n] = color.toCharArray()[value];
-                value++;
-                System.out.print(faces[i][n]);
-            }
-            System.out.println();
-        }
+        CubeR rubikCube = new CubeR();
 
+        ArrayList<String> faceColors = new ArrayList<>();
+        faceColors.add("WWWWWWWW"); // Cara Blanca
+        faceColors.add("BBBBBBBB"); // Cara Azul
+        faceColors.add("RRRRRRRR"); // Cara Roja
+        faceColors.add("OOOOOOOO"); // Cara Naranja
+        faceColors.add("GGGGGGGG"); // Cara Verde
+        faceColors.add("YYYYYYYY"); // Cara Amarilla
+
+        rubikCube.personalizeCubeColors(faceColors);
+        rubikCube.printCube();
 
     }
 }
